@@ -1,10 +1,35 @@
-= form_for @game_result do |f|
+= form_for(@game_result) do |f|
   - if @game_result.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@game_result.errors.count, "error")} prohibited this game_result from being saved:"
+      %h2
+        = pluralize(@game_result.errors.count, "error")
+        prohibited this game_result from being saved:
       %ul
         - @game_result.errors.full_messages.each do |msg|
           %li= msg
-
+  .field
+    = f.label :scheduled_at
+    %br/
+    = f.date_select :scheduled_at
+  .field
+    = f.label :home_shop
+    %br/
+    = f.collection_select(:home_shop, @shops, :id, :name)
+  .field
+    = f.label :away_shop
+    %br/
+    = f.collection_select(:away_shop, @shops, :id, :name)
+  .field
+    = f.label :winning_type
+    %br/
+    = f.collection_select(:winning_type, @winning_types, :id, :label)
+  .field
+    = f.label :home_score
+    %br/
+    = f.text_field :home_score
+  .field
+    = f.label :away_score
+    %br/
+    = f.text_field :away_score
   .actions
-    = f.submit 'Save'
+    = f.submit
