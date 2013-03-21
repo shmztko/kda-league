@@ -1,0 +1,99 @@
+result_1_1:
+  id: 1
+  scheduled_at: 2013-02-18
+  home_shop_id: 1
+  away_shop_id: 6
+  winning_type_id: 1
+  home_score: 5
+  away_score: 4
+result_1_2:
+  id: 2
+  scheduled_at: 2013-02-18
+  home_shop_id: 2
+  away_shop_id: 5
+  winning_type_id: 3
+  home_score: 9
+  away_score: 0
+result_1_3:
+  id: 3
+  scheduled_at: 2013-02-18
+  home_shop_id: 3
+  away_shop_id: 4
+  winning_type_id: 1
+  home_score: 6
+  away_score: 3
+
+result_2_1:
+  id: 4
+  scheduled_at: 2013-02-25
+  home_shop_id: 6
+  away_shop_id: 1
+  winning_type_id: 2
+  home_score: 1
+  away_score: 8
+result_2_2:
+  id: 5  
+  scheduled_at: 2013-02-25
+  home_shop_id: 5
+  away_shop_id: 2
+  winning_type_id: 1
+  home_score: 6
+  away_score: 3
+result_2_3:
+  id: 6
+  scheduled_at: 2013-02-25
+  home_shop_id: 4
+  away_shop_id: 3
+  winning_type_id: 1
+  home_score: 6
+  away_score: 3
+
+result_3_1:
+  id: 7
+  scheduled_at: 2013-03-11
+  home_shop_id: 1
+  away_shop_id: 5
+  winning_type_id: 1
+  home_score: 7
+  away_score: 2
+result_3_2:
+  id: 8
+  scheduled_at: 2013-03-11
+  home_shop_id: 2
+  away_shop_id: 3
+  winning_type_id: 2
+  home_score: 2
+  away_score: 7
+result_3_3:
+  id: 9
+  scheduled_at: 2013-03-11
+  home_shop_id: 6
+  away_shop_id: 4
+  winning_type_id: 2
+  home_score: 2
+  away_score: 7
+
+result_4_1:
+  id: 10
+  scheduled_at: 2013-03-18
+  home_shop_id: 5
+  away_shop_id: 1
+  winning_type_id: 1
+  home_score: 5
+  away_score: 4
+result_4_2:
+  id: 11
+  scheduled_at: 2013-03-18
+  home_shop_id: 3
+  away_shop_id: 2
+  winning_type_id: 2
+  home_score: 4
+  away_score: 5
+result_4_3:
+  id: 12
+  scheduled_at: 2013-03-18
+  home_shop_id: 4
+  away_shop_id: 6
+  winning_type_id: 1
+  home_score: 5
+  away_score: 4

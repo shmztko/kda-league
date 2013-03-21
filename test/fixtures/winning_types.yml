@@ -1,0 +1,20 @@
+home_won:
+ id: 1
+ kind: home_won
+ label: ホームの勝利
+
+away_won:
+ id: 2
+ kind: away_won
+ label: アウェイの勝利
+
+home_won_by_default:
+ id: 3
+ kind: home_won_by_default
+ label: ホームの不戦勝
+
+away_won_by_default:
+ id: 4
+ kind: away_won_by_default
+ label: アウェイの不戦勝
+
