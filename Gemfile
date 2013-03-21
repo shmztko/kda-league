@@ -7,11 +7,17 @@ gem 'rails', '3.2.11'
 
 gem 'sqlite3'
 
+gem 'jquery-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'haml-rails'
+
+  gem 'less-rails'
+  gem 'twitter-bootstrap-rails'
+
+# gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -20,7 +26,22 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false
+  gem 'ci_reporter'
+end
+
+#group :metrics do
+#  gem 'ZenTest', '= 4.8.3'
+#  gem 'roodi', '~> 2.2.0'
+#  gem 'reek', '~> 1.2.13'
+#  gem 'flay'
+#  gem 'flog'
+#end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
