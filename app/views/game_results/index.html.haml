@@ -18,5 +18,5 @@
       %td= game_result.away_shop.name
       %td= game_result.home_score
       %td= game_result.away_score
-      %td= link_to 'Edit', edit_game_result_path(game_result)
-      %td= link_to 'Delete', game_result, method: :delete, data: { confirm: 'Are you sure?' }
+      %td= link_to 'Edit', edit_game_result_path(game_result), :class => 'icon-edit'
+      %td= link_to 'Delete', game_result, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove'
