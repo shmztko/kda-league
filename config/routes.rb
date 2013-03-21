@@ -1,5 +1,9 @@
 KdaLeague::Application.routes.draw do
-  root :to => 'pages#index'
+
+  resources :game_results
+
+
+  root :to => 'game_results#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

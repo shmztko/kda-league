@@ -1,0 +1,25 @@
+%h1 Listing game_results
+%table
+  %tr
+    %th Scheduled at
+    %th Home shop
+    %th Away shop
+    %th Winning type
+    %th Home score
+    %th Away score
+    %th
+    %th
+    %th
+  - @game_results.each do |game_result|
+    %tr
+      %td= game_result.scheduled_at
+      %td= game_result.home_shop.name
+      %td= game_result.away_shop.name
+      %td= game_result.winning_type.label
+      %td= game_result.home_score
+      %td= game_result.away_score
+      %td= link_to 'Show', game_result
+      %td= link_to 'Edit', edit_game_result_path(game_result)
+      %td= link_to 'Destroy', game_result, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Game result', new_game_result_path
