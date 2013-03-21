@@ -9,15 +9,12 @@
           %li= msg
   .field
     = f.label :scheduled_at
-    %br/
-    = f.date_select :scheduled_at
+    = f.text_field :scheduled_at, id: 'datepicker'
   .field
     = f.label :home_shop
-    %br/
     = f.collection_select(:home_shop, @shops, :id, :name)
   .field
     = f.label :away_shop
-    %br/
     = f.collection_select(:away_shop, @shops, :id, :name)
   .field
     = f.label :winning_type
