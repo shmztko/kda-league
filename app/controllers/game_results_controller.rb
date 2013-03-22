@@ -5,11 +5,6 @@ class GameResultsController < ApplicationController
     @notice = params[:notice]
   end
 
-  # GET /game_results/1
-  def show
-    @game_result = GameResult.find(params[:id])
-  end
-
   # GET /game_results/new
   def new
     @game_result = GameResult.new
@@ -57,11 +52,11 @@ private
   def prepare(params)
     params[:game_result][:home_shop] = Shop.find(params[:game_result][:home_shop])
     params[:game_result][:away_shop] = Shop.find(params[:game_result][:away_shop])
-    if params[:game_result][:winning_type] != ''
-      params[:game_result][:winning_type] = WinningType.find(params[:game_result][:winning_type])
-    else
+    if params[:game_result][:winning_type].empty?
       params[:game_result][:winning_type] = nil
+    else
+      params[:game_result][:winning_type] = WinningType.find(params[:game_result][:winning_type])
     end
-    params
+    return params
   end
 end
