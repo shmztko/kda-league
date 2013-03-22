@@ -12,14 +12,14 @@
     = f.text_field :scheduled_at, id: 'datepicker'
   .field
     = f.label :home_shop
-    = f.collection_select(:home_shop, @shops, :id, :name)
+    = f.collection_select(:home_shop, @shops, :id, :name, :selected => @game_result.home_shop.id)
   .field
     = f.label :away_shop
-    = f.collection_select(:away_shop, @shops, :id, :name)
+    = f.collection_select(:away_shop, @shops, :id, :name, :selected => @game_result.away_shop.id)
   .field
     = f.label :winning_type
     %br/
-    = f.collection_select(:winning_type, @winning_types, :id, :label)
+    = f.collection_select(:winning_type, @winning_types, :id, :label, :include_blank => true, :selected => @game_result.winning_type)
   .field
     = f.label :home_score
     %br/

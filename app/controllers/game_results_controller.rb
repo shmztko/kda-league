@@ -1,7 +1,7 @@
 class GameResultsController < ApplicationController
   # GET /game_results
   def index
-    @game_results = GameResult.all
+    @game_results = GameResult.find :all, :order => 'scheduled_at desc'
   end
 
   # GET /game_results/1
@@ -56,7 +56,11 @@ private
   def prepare(params)
     params[:game_result][:home_shop] = Shop.find(params[:game_result][:home_shop])
     params[:game_result][:away_shop] = Shop.find(params[:game_result][:away_shop])
-    params[:game_result][:winning_type] = WinningType.find(params[:game_result][:winning_type])
+    if params[:game_result][:winning_type] != ''
+      params[:game_result][:winning_type] = WinningType.find(params[:game_result][:winning_type])
+    else
+      params[:game_result][:winning_type] = nil
+    end
     params
   end
 end
