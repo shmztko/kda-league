@@ -7,26 +7,34 @@
       %ul
         - @game_result.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :scheduled_at
-    = f.text_field :scheduled_at, id: 'datepicker'
-  .field
-    = f.label :home_shop
-    = f.collection_select(:home_shop, @shops, :id, :name, :selected => @game_result.home_shop.id)
-  .field
-    = f.label :away_shop
-    = f.collection_select(:away_shop, @shops, :id, :name, :selected => @game_result.away_shop.id)
-  .field
-    = f.label :winning_type
-    %br/
-    = f.collection_select(:winning_type, @winning_types, :id, :label, :include_blank => true, :selected => @game_result.winning_type)
-  .field
-    = f.label :home_score
-    %br/
-    = f.text_field :home_score
-  .field
-    = f.label :away_score
-    %br/
-    = f.text_field :away_score
+  %hr
+  %table.table
+    %tr
+      %td
+        = f.label :scheduled_at
+      %td
+        = f.text_field :scheduled_at, id: 'datepicker'
+    %tr
+      %td
+        = f.label :winning_type
+      %td   
+        = f.collection_select(:winning_type, @winning_types, :id, :label, :selected => @game_result.winning_type.nil? ? nil : @game_result.winning_type.id, :include_blank => true)
+    %tr
+      %th
+      %th Shop
+      %th Score
+    %tr
+      %td Home
+      %td
+        = f.collection_select(:home_shop, @shops, :id, :name, :selected => @game_result.home_shop.nil? ? nil : @game_result.home_shop.id, :include_blank => true)
+      %td 
+        = f.text_field :home_score        
+    %tr
+      %td Away
+      %td
+        = f.collection_select(:away_shop, @shops, :id, :name, :selected => @game_result.away_shop.nil? ? nil : @game_result.away_shop.id, :include_blank => true)
+      %td
+        = f.text_field :away_score
   .actions
     = f.submit
+

@@ -2,6 +2,7 @@ class GameResultsController < ApplicationController
   # GET /game_results
   def index
     @game_results = GameResult.find :all, :order => 'scheduled_at desc'
+    @notice = params[:notice]
   end
 
   # GET /game_results/1
@@ -27,7 +28,7 @@ class GameResultsController < ApplicationController
   def create
     @game_result = GameResult.new(prepare(params)[:game_result])
     if @game_result.save
-      redirect_to @game_result, notice: 'Game result was successfully created.'
+      redirect_to :action => 'index', notice: 'Game result was successfully created.'
     else
       render action: "new"
     end
@@ -38,7 +39,7 @@ class GameResultsController < ApplicationController
     @game_result = GameResult.find(params[:id])
 
     if @game_result.update_attributes(prepare(params)[:game_result])
-      redirect_to @game_result, notice: 'Game result was successfully updated.'
+      redirect_to :action => 'index', notice: 'Game result was successfully updated.'
     else
       render action: "edit"
     end
