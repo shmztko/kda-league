@@ -1,6 +1,6 @@
 = form_for(@game_result) do |f|
   - if @game_result.errors.any?
-    #error_explanation
+    .alert.alert-error
       %h2
         = pluralize(@game_result.errors.count, "error")
         prohibited this game_result from being saved:
