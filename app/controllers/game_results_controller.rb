@@ -7,24 +7,23 @@ class GameResultsController < ApplicationController
   # GET /game_results/new
   def new
     @game_result = GameResult.new
-    @shops = Shop.all
-    @winning_types = WinningType.all
+    prepare_for_rendering
   end
 
   # GET /game_results/1/edit
   def edit
     @game_result = GameResult.find(params[:id])
-    @shops = Shop.all
-    @winning_types = WinningType.all
+    prepare_for_rendering
   end
 
   # POST /game_results
   def create
-    @game_result = GameResult.new(prepare(params)[:game_result])
+    @game_result = GameResult.new(prepare_for_game_result(params)[:game_result])
     if @game_result.save
       redirect_to game_results_path, notice: 'Game result was successfully created.'
     else
-      render action: "new"
+      prepare_for_rendering
+      render action: 'new'
     end
   end
 
@@ -32,10 +31,11 @@ class GameResultsController < ApplicationController
   def update
     @game_result = GameResult.find(params[:id])
 
-    if @game_result.update_attributes(prepare(params)[:game_result])
+    if @game_result.update_attributes(prepare_for_game_result(params)[:game_result])
       redirect_to game_results_path, notice: 'Game result was successfully updated.'
     else
-      render action: "edit"
+      prepare_for_rendering
+      render action: 'edit'
     end
   end
 
@@ -48,14 +48,14 @@ class GameResultsController < ApplicationController
 
 
 private
-  def prepare(params)
-    params[:game_result][:home_shop] = Shop.find(params[:game_result][:home_shop])
-    params[:game_result][:away_shop] = Shop.find(params[:game_result][:away_shop])
-    if params[:game_result][:winning_type].empty?
-      params[:game_result][:winning_type] = nil
-    else
-      params[:game_result][:winning_type] = WinningType.find(params[:game_result][:winning_type])
-    end
+  def prepare_for_game_result(params)
+    params[:game_result][:home_shop] =  params[:game_result][:winning_type].empty? ? nil : Shop.find(params[:game_result][:home_shop])
+    params[:game_result][:away_shop] =  params[:game_result][:winning_type].empty? ? nil : Shop.find(params[:game_result][:away_shop])
+    params[:game_result][:winning_type] =  params[:game_result][:winning_type].empty? ? nil : WinningType.find(params[:game_result][:winning_type])
     return params
+  end
+  def prepare_for_rendering
+    @winning_types = WinningType.all
+    @shops = Shop.all
   end
 end
