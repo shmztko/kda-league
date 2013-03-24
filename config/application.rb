@@ -32,6 +32,7 @@ module KdaLeague
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ja
 
@@ -60,8 +61,10 @@ module KdaLeague
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # エラー発生時にTwitterBootstrap のエラー表示させるためのタグを返すように設定
+    config.action_view.field_error_proc = ->(html, instance) { 
+      %|<div class="control-group error">#{html}</div>|.html_safe
+    }
   end
-  ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|
-    html_tag
-  }
 end
