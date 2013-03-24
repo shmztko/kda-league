@@ -20,7 +20,7 @@ class GameResultsController < ApplicationController
   def create
     @game_result = GameResult.new(prepare_for_game_result(params)[:game_result])
     if @game_result.save
-      redirect_to game_results_path, notice: 'Game result was successfully created.'
+      redirect_to game_results_path, notice: t('message.created')
     else
       prepare_for_rendering
       render action: 'new'
@@ -32,7 +32,7 @@ class GameResultsController < ApplicationController
     @game_result = GameResult.find(params[:id])
 
     if @game_result.update_attributes(prepare_for_game_result(params)[:game_result])
-      redirect_to game_results_path, notice: 'Game result was successfully updated.'
+      redirect_to game_results_path, notice: t('message.updated')
     else
       prepare_for_rendering
       render action: 'edit'
