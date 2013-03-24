@@ -49,8 +49,8 @@ class GameResultsController < ApplicationController
 
 private
   def prepare_for_game_result(params)
-    params[:game_result][:home_shop] =  params[:game_result][:winning_type].empty? ? nil : Shop.find(params[:game_result][:home_shop])
-    params[:game_result][:away_shop] =  params[:game_result][:winning_type].empty? ? nil : Shop.find(params[:game_result][:away_shop])
+    params[:game_result][:home_shop] =  params[:game_result][:home_shop].empty? ? nil : Shop.find(params[:game_result][:home_shop])
+    params[:game_result][:away_shop] =  params[:game_result][:away_shop].empty? ? nil : Shop.find(params[:game_result][:away_shop])
     params[:game_result][:winning_type] =  params[:game_result][:winning_type].empty? ? nil : WinningType.find(params[:game_result][:winning_type])
     return params
   end
