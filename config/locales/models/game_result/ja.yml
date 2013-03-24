@@ -3,7 +3,7 @@ ja:
   activerecord:
     models:
       game_result: 試合結果
-      shop:	ショップ
+      shop: ショップ
       winning_type: 勝利形式
     attributes:
       game_result:
