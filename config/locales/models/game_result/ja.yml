@@ -1,0 +1,15 @@
+ja:
+  # Model resources
+  activerecord:
+    models:
+      game_result: 試合結果
+      shop:	ショップ
+      winning_type: 勝利形式
+    attributes:
+      game_result:
+        scheduled_at: 試合日
+        winning_type: 勝利形式
+        home_score: ホームの点数
+        away_score: アウェイの点数
+        home_shop: ホームショップ
+        away_shop: アウェイショップ

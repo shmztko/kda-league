@@ -1,0 +1,22 @@
+ja:
+  _form:
+    shop: ショップ
+    score: 点数
+    home: ホーム
+    away: アウェイ
+  new:
+    title: 新規試合結果
+  edit:
+    title: 試合結果編集
+  index:
+    title: 試合結果一覧
+    date: 日付
+    home_shop: ホーム
+    away_shop: アウェイ
+    home_score: ホーム点数
+    away_score: アウェイ点数
+    new: 追加
+    delete: 削除
+    edit: 編集
+    confirm:
+      message: よろしいですか？
