@@ -1,13 +1,9 @@
 = form_for(@game_result) do |f|
   - if @game_result.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@game_result.errors.count, "error")
-        prohibited this game_result from being saved:
+    .alert.alert-error    
       %ul
         - @game_result.errors.full_messages.each do |msg|
           %li= msg
-  %hr
   %table.table
     %tr
       %td
@@ -21,16 +17,20 @@
         = f.collection_select(:winning_type, @winning_types, :id, :label, :selected => @game_result.winning_type.nil? ? nil : @game_result.winning_type.id, :include_blank => true)
     %tr
       %th
-      %th Shop
-      %th Score
+      %th 
+        = t '_form.shop'
+      %th
+        = t '_form.score'
     %tr
-      %td Home
+      %td
+        = t '_form.home'
       %td
         = f.collection_select(:home_shop, @shops, :id, :name, :selected => @game_result.home_shop.nil? ? nil : @game_result.home_shop.id, :include_blank => true)
       %td 
         = f.text_field :home_score        
     %tr
-      %td Away
+      %td
+        = t '_form.away'
       %td
         = f.collection_select(:away_shop, @shops, :id, :name, :selected => @game_result.away_shop.nil? ? nil : @game_result.away_shop.id, :include_blank => true)
       %td

@@ -1,15 +1,21 @@
-%h1 Game Result
--#%p#notice= notice
+%h1
+  = t 'index.title'
 %form{:action=>new_game_result_path, :method=>'get'}
-  %button{:type=>'submit'} New game result
+  %button{:type=>'submit'}
+    = t 'index.new'
 %br
 %table.table.table-striped
   %tr
-    %th Date
-    %th Home shop
-    %th Away shop
-    %th Home score
-    %th Away score
+    %th
+      = t 'index.date'
+    %th
+      = t 'index.home_shop'
+    %th
+      = t 'index.away_shop'
+    %th
+      = t 'index.home_score'
+    %th
+      = t 'index.away_score'
     %th
     %th
   - @game_results.each do |game_result|
@@ -19,5 +25,5 @@
       %td= game_result.away_shop.name
       %td= game_result.home_score
       %td= game_result.away_score
-      %td= link_to 'Edit', edit_game_result_path(game_result), :class => 'icon-edit'
-      %td= link_to 'Delete', game_result, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove'
+      %td= link_to t('index.edit'), edit_game_result_path(game_result), :class => 'icon-edit'
+      %td= link_to t('index.delete'), game_result, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove'
