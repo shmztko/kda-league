@@ -28,20 +28,19 @@
           %a.brand(href="/") KDA-League
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Rule", "/path2"
-              %li= link_to "Blog", "http://ameblo.jp/kdahard/"
+              %li= link_to t('layouts.application.ranking'), "/ranking/show"
+              %li= link_to t('layouts.application.results'), "/game_results"
+              %li= link_to t('layouts.application.blog'), "http://ameblo.jp/kdahard/"
 
     .container-fluid
-
       .row-fluid
         .span3
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "BLog", "http://ameblo.jp/kdahard/"
+              %li= link_to t('layouts.application.ranking'), "/ranking/show"
+              %li= link_to t('layouts.application.results'), "/game_results"
+              %li= link_to t('layouts.application.blog'), "http://ameblo.jp/kdahard/"
         .span9
           = bootstrap_flash
           = yield

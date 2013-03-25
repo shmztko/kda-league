@@ -1,0 +1,15 @@
+%h1
+  = t 'show.title'
+%table.table.table-striped
+  %tr
+  %th
+    = t 'show.rank'
+  %th
+    = t 'show.shop'
+  %th
+    = t 'show.point'
+  - @point_for_shop.each_with_index do |ps, i|
+    %tr
+      %td= i+1
+      %td= ps[:shop].name
+      %td= ps[:point]
