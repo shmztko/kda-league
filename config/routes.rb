@@ -4,7 +4,7 @@ KdaLeague::Application.routes.draw do
 
   get "ranking/show"
 
-  resources :game_results
+  resources :game_results, :except => 'show'
 
 
   # The priority is based upon order of creation:
