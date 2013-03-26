@@ -30,18 +30,18 @@
             %ul.nav
               %li= link_to t('layouts.application.ranking'), "/ranking/show"
               %li= link_to t('layouts.application.results'), "/game_results"
-              %li= link_to t('layouts.application.blog'), "http://ameblo.jp/kdahard/"
+              %li= link_to t('layouts.application.blog'), "http://ameblo.jp/kdahard/", {:target => 'blank'}
 
     .container-fluid
       .row-fluid
-        .span3
+        .span2
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
               %li= link_to t('layouts.application.ranking'), "/ranking/show"
               %li= link_to t('layouts.application.results'), "/game_results"
-              %li= link_to t('layouts.application.blog'), "http://ameblo.jp/kdahard/"
-        .span9
+              %li= link_to t('layouts.application.blog'), "http://ameblo.jp/kdahard/", {:target => 'blank'}
+        .span10
           = bootstrap_flash
           = yield
 
