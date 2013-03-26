@@ -1,4 +1,6 @@
 class GameResult < ActiveRecord::Base
+  TOTAL_LEGS = 9
+
   attr_accessible :away_score, :home_score, :scheduled_at
   attr_accessible :home_shop, :away_shop, :winning_type
   belongs_to :home_shop, :foreign_key => :home_shop_id, :class_name => 'Shop'
@@ -8,7 +10,13 @@ class GameResult < ActiveRecord::Base
   validates :scheduled_at, :presence => true
   validates :home_shop, :presence => true
   validates :away_shop, :presence => true
-  validates :home_score, :numericality => {:only_integer => true, :allow_nil => true, :less_than => 9}
-  validates :away_score, :numericality => {:only_integer => true, :allow_nil => true, :less_than => 9}
+  validates :home_score, :numericality => {:only_integer => true, :allow_nil => true, :less_than => TOTAL_LEGS}
+  validates :away_score, :numericality => {:only_integer => true, :allow_nil => true, :less_than => TOTAL_LEGS}
+
+  validate :score_combination
+
+  def score_combination
+    errors.add :base, I18n.t('activerecord.errors.score_combination', :total => TOTAL_LEGS) if (away_score + home_score) > TOTAL_LEGS
+  end
 
 end

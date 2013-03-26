@@ -13,3 +13,5 @@ ja:
         away_score: アウェイの点数
         home_shop: ホームショップ
         away_shop: アウェイショップ
+    errors: 
+      score_combination: "点数の合計が%{total}以下となるように入力してください。"
