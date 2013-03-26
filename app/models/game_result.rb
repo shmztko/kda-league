@@ -10,8 +10,8 @@ class GameResult < ActiveRecord::Base
   validates :scheduled_at, :presence => true
   validates :home_shop, :presence => true
   validates :away_shop, :presence => true
-  validates :home_score, :numericality => {:only_integer => true, :allow_nil => true, :less_than => TOTAL_LEGS}
-  validates :away_score, :numericality => {:only_integer => true, :allow_nil => true, :less_than => TOTAL_LEGS}
+  validates :home_score, :numericality => {:only_integer => true, :allow_nil => true, :less_than_or_equal_to => TOTAL_LEGS}
+  validates :away_score, :numericality => {:only_integer => true, :allow_nil => true, :less_than_or_equal_to => TOTAL_LEGS}
 
   validate :score_combination
 
