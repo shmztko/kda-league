@@ -4,37 +4,47 @@
       %ul
         - @game_result.errors.full_messages.each do |msg|
           %li= msg
-  %table.table
-    %tr
-      %td
-        = f.label :scheduled_at
-      %td
-        = f.text_field :scheduled_at, id: 'datepicker'
-    %tr
-      %td
-        = f.label :winning_type
-      %td   
-        = f.collection_select(:winning_type, @winning_types, :id, :label, :selected => @game_result.winning_type.nil? ? nil : @game_result.winning_type.id, :include_blank => true)
-    %tr
-      %th
-      %th 
-        = t '_form.shop'
-      %th
-        = t '_form.score'
-    %tr
-      %td
-        = t '_form.home'
-      %td
-        = f.collection_select(:home_shop, @shops, :id, :name, :selected => @game_result.home_shop.nil? ? nil : @game_result.home_shop.id, :include_blank => true)
-      %td 
-        = f.text_field :home_score        
-    %tr
-      %td
-        = t '_form.away'
-      %td
-        = f.collection_select(:away_shop, @shops, :id, :name, :selected => @game_result.away_shop.nil? ? nil : @game_result.away_shop.id, :include_blank => true)
-      %td
-        = f.text_field :away_score
-  .actions
-    = f.submit
+  .row
+    .span2.offset1
+      = f.label :scheduled_at
+    .span9
+      = f.text_field :scheduled_at, id: 'datepicker'
+  .row
+    .span2.offset1
+      = f.label :winning_type
+    .span9
+      = f.collection_select(:winning_type, @winning_types, :id, :label, :selected => @game_result.winning_type.nil? ? nil : @game_result.winning_type.id, :include_blank => true)
+  .row.hidden-phone
+    .span4.offset3
+      = t '_form.home'
+    .span4
+      = t '_form.away'
+  .row
+    .span2.offset1
+      = t '_form.shop'
+    .span1.visible-phone
+      = t '_form.home'
+    .span4
+      = f.collection_select(:home_shop, @shops, :id, :name, :selected => @game_result.home_shop.nil? ? nil : @game_result.home_shop.id, :include_blank => true)
+    .span1.visible-phone
+      = t '_form.away'
+    .span4
+      = f.collection_select(:away_shop, @shops, :id, :name, :selected => @game_result.away_shop.nil? ? nil : @game_result.away_shop.id, :include_blank => true)
+  .row
+    .span2.offset1
+      = t '_form.score'
+    .span1.visible-phone
+      = t '_form.home'
+    .span4
+      = f.text_field :home_score
+    .span1.visible-phone
+      = t '_form.away'
+    .span4
+      = f.text_field :away_score
+  %br/
+  .row
+    .span1.offset1
+      = f.submit nil, :class => 'btn'
+.span1
+  = button_to t('back'), game_results_path, :method => :get, :class => 'btn'
 
