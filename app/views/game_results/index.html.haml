@@ -1,8 +1,7 @@
 %h1
   = t 'index.title'
-%form{:action=>new_game_result_path, :method=>'get'}
-  %button{:type=>'submit'}
-    = t 'index.new'
+%hr
+= button_to t('index.new'), new_game_result_path, :method => :get, :class => 'btn btn-large'
 %br
 %table.table.table-striped
   %tr
