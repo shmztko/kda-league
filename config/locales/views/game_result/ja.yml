@@ -6,11 +6,11 @@ ja:
     home: ホーム
     away: アウェイ
   new:
-    title: 新規試合結果
+    title: 新規リザルト
   edit:
-    title: 試合結果編集
+    title: リザルト編集
   index:
-    title: 試合結果一覧
+    title: リザルト
     date: 日付
     home_shop: ホーム
     away_shop: アウェイ
