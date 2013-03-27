@@ -16,9 +16,10 @@
     %th
     %th
   - @game_results_by_date.each_pair do |k, v|
-    %td{:rowspan => v.size + 1}= k
-    - v.each do |game_result|
+    - v.each_with_index do |game_result, i|
       %tr
+        - if i == 0
+          %td{:rowspan => v.size}= k
         %td
           .text-right
             = game_result.home_shop.name
