@@ -7,22 +7,34 @@
   %tr
     %th
       = t 'index.date'
-    %th
-      = t 'index.home_shop'
-    %th
-      = t 'index.away_shop'
-    %th
-      = t 'index.home_score'
-    %th
-      = t 'index.away_score'
+    %th{:colspan => 2}
+      .text-center
+        = t 'index.home_shop'
+    %th{:colspan => 2}
+      .text-center
+        = t 'index.away_shop'
     %th
     %th
-  - @game_results.each do |game_result|
-    %tr
-      %td= game_result.scheduled_at
-      %td= game_result.home_shop.name
-      %td= game_result.away_shop.name
-      %td= game_result.home_score
-      %td= game_result.away_score
-      %td= link_to t('index.edit'), edit_game_result_path(game_result), :class => 'icon-edit'
-      %td= link_to t('index.delete'), game_result, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove'
+  - @game_results_by_date.each_pair do |k, v|
+    %td{:rowspan => v.size + 1}= k
+    - v.each do |game_result|
+      %tr
+        %td
+          .text-right
+            = game_result.home_shop.name
+        %td
+          .text-center
+            = game_result.home_score
+        %td
+          .text-center
+            = game_result.away_score
+        %td
+          .text-left
+            = game_result.away_shop.name
+        %td
+          = link_to t('index.edit'), edit_game_result_path(game_result), :class => 'icon-edit hidden-phone'
+          -# 画面が小さいときは、ひとつの列にボタン二つ入れる
+          = link_to '', edit_game_result_path(game_result), :class => 'icon-edit visible-phone'
+          = link_to '', game_result, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove visible-phone'
+        %td
+          = link_to t('index.delete'), game_result, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove hidden-phone'
