@@ -26,7 +26,7 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="/") KDA-League
-          .container.nav-collapse
+          .container.nav-collapse.hidden-desktop
             %ul.nav
               %li= link_to t('layouts.application.ranking'), "/ranking/show"
               %li= link_to t('layouts.application.results'), "/game_results"
@@ -34,10 +34,9 @@
 
     .container-fluid
       .row-fluid
-        .span2
+        .span2.visible-desktop
           .well.sidebar-nav
             %ul.nav.nav-list
-              %li.nav-header Sidebar
               %li= link_to t('layouts.application.ranking'), "/ranking/show"
               %li= link_to t('layouts.application.results'), "/game_results"
               %li= link_to t('layouts.application.blog'), "http://ameblo.jp/kdahard/", {:target => 'blank'}

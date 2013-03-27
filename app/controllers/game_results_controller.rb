@@ -1,7 +1,15 @@
 class GameResultsController < ApplicationController
   # GET /game_results
   def index
-    @game_results = GameResult.find :all, :order => 'scheduled_at desc'
+    @game_results_by_date = GameResult.find(:all, :order => 'scheduled_at desc').inject(Hash.new) {|result, g|
+      if result.key?(g.scheduled_at) then
+        result[g.scheduled_at].push(g)
+      else
+        result[g.scheduled_at] = [g];
+      end
+      result
+    }
+
   end
 
   # GET /game_results/new
