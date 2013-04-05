@@ -10,7 +10,7 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :shop_id
-    = f.text_field :shop_id
+    = f.label :shop
+    = f.collection_select(:shop, @shops, :id, :name, :selected => @player.shop.nil? ? nil : @player.shop.id, :include_blank => true)
   .actions
     = f.submit 'Save'
