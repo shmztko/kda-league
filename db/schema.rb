@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(:version => 20130325164335) do
     t.datetime "updated_at",                     :null => false
   end
 
+  add_index "game_results", ["away_shop_id"], :name => "index_game_results_on_away_shop_id"
+  add_index "game_results", ["home_shop_id"], :name => "index_game_results_on_home_shop_id"
+  add_index "game_results", ["winning_type_id"], :name => "index_game_results_on_winning_type_id"
+
+  create_table "players", :force => true do |t|
+    t.string   "name"
+    t.integer  "shop_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "players", ["shop_id"], :name => "index_players_on_shop_id"
+
   create_table "shops", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false

@@ -2,6 +2,9 @@ KdaLeague::Application.routes.draw do
 
   root :to => 'ranking#show'
 
+  resources :players
+
+
   get "ranking/show"
 
   resources :game_results, :except => 'show'
