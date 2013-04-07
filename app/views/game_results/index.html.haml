@@ -3,39 +3,33 @@
 %hr
 = button_to t('index.new'), new_game_result_path, :method => :get, :class => 'btn'
 %br
-%table.table.table-striped
-  %tr
-    %th
-      = t 'index.date'
-    %th{:colspan => 2}
-      .text-center
+%table.table.table-striped.footable
+  %thead
+    %tr
+      %th
+        = t 'index.date'
+      %th{"data-hide" => "phone,tablet", "data-group" => "home"}
         = t 'index.home_shop'
-    %th{:colspan => 2}
-      .text-center
+      %th{"data-hide" => "phone,tablet", "data-group" => "home"}
+        = 'ポイント'
+      %th{"data-hide" => "phone,tablet", "data-group" => "away"}
+        = 'ポイント'
+      %th{"data-hide" => "phone,tablet", "data-group" => "away"}
         = t 'index.away_shop'
-    %th
-    %th
-  - @game_results_by_date.each_pair do |k, v|
-    - v.each_with_index do |game_result, i|
-      %tr
-        - if i == 0
-          %td{:rowspan => v.size}= k
-        %td
-          .text-right
-            = game_result.home_shop.name
-        %td
-          .text-center
-            = game_result.home_score
-        %td
-          .text-center
-            = game_result.away_score
-        %td
-          .text-left
-            = game_result.away_shop.name
-        %td
-          = link_to t('index.edit'), edit_game_result_path(game_result), :class => 'icon-edit hidden-phone'
-          -# 画面が小さいときは、ひとつの列にボタン二つ入れる
-          = link_to '', edit_game_result_path(game_result), :class => 'icon-edit visible-phone'
-          = link_to '', game_result, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove visible-phone'
-        %td
-          = link_to t('index.delete'), game_result, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove hidden-phone'
+      %th{"data-hide" => "phone,tablet", "data-group" => "control"}
+      %th{"data-hide" => "phone,tablet", "data-group" => "control"}
+  %tbody
+    - @game_results_by_date.each_pair do |k, v|
+      - v.each_with_index do |game_result, i|
+        %tr
+          -# if i == 0
+          -#%td{:rowspan => v.size}= k
+          %td= k
+          %td= game_result.home_shop.name
+          %td= game_result.home_score
+          %td= game_result.away_score
+          %td= game_result.away_shop.name
+          %td
+            = link_to t('index.edit'), edit_game_result_path(game_result), :class => 'icon-edit'
+          %td
+            = link_to t('index.delete'), game_result, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove'

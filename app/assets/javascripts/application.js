@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require twitter/bootstrap
+//= require footable-0.1
 //= require_tree .
