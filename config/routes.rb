@@ -1,5 +1,8 @@
 KdaLeague::Application.routes.draw do
 
+  resources :game_results
+
+
   root :to => 'ranking#show'
 
   resources :players

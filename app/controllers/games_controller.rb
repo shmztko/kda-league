@@ -9,7 +9,6 @@ class GamesController < ApplicationController
       end
       result
     }
-
   end
 
   # GET /games/new
@@ -20,15 +19,15 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
-    @game = GameResult.find(params[:id])
+    @game = Game.find(params[:id])
     prepare_for_rendering
   end
 
   # POST /games
   def create
-    @game = GameResult.new(games(params)[:game])
+    @game = Game.new(prepare_for_save(params)[:game])
     if @game.save
-      redirect_to game_results_path, notice: t('message.created')
+      redirect_to games_path, notice: t('message.created')
     else
       prepare_for_rendering
       render action: 'new'
@@ -37,10 +36,10 @@ class GamesController < ApplicationController
 
   # PUT /games/1
   def update
-    @game = GameResult.find(params[:id])
+    @game = Game.find(params[:id])
 
-    if @game.update_attributes(games(params)[:game])
-      redirect_to game_results_path, notice: t('message.updated')
+    if @game.update_attributes(prepare_for_save(params)[:game])
+      redirect_to games_path, notice: t('message.updated')
     else
       prepare_for_rendering
       render action: 'edit'
@@ -49,14 +48,14 @@ class GamesController < ApplicationController
 
   # DELETE /games/1
   def destroy
-    @game = GameResult.find(params[:id])
+    @game = Game.find(params[:id])
     @game.destroy
     redirect_to @game
   end
 
 
 private
-  def games(params)
+  def prepare_for_save(params)
     params[:game][:home_shop] =  params[:game][:home_shop].empty? ? nil : Shop.find(params[:game][:home_shop])
     params[:game][:away_shop] =  params[:game][:away_shop].empty? ? nil : Shop.find(params[:game][:away_shop])
     params[:game][:winning_type] =  params[:game][:winning_type].empty? ? nil : WinningType.find(params[:game][:winning_type])

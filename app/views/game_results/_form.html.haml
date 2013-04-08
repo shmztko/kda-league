@@ -1,0 +1,29 @@
+= form_for @game_result do |f|
+  - if @game_result.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@game_result.errors.count, "error")} prohibited this game_result from being saved:"
+      %ul
+        - @game_result.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .span2.offset1
+      = f.label :home_score
+    .span9
+      = f.number_field :home_score
+  .row
+    .span2.offset1
+      = f.label :away_score
+    .span9
+      = f.number_field :away_score
+  .row
+    .span2.offset1
+      = f.label :is_abstained
+    .span9
+      = f.check_box :is_abstained
+
+  %br/
+  .row
+    .span1.offset1
+      = f.submit nil, :class => 'btn'
+.span1
+  = button_to t('back'), games_path, :method => :get, :class => 'btn'

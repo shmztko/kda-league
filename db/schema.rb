@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408045333) do
+ActiveRecord::Schema.define(:version => 20130408062438) do
+
+  create_table "game_results", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "home_score"
+    t.integer  "away_score"
+    t.integer  "winning_type_id"
+    t.boolean  "is_abstained",    :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
 
   create_table "games", :force => true do |t|
     t.date     "scheduled_at"
@@ -28,6 +38,17 @@ ActiveRecord::Schema.define(:version => 20130408045333) do
   add_index "games", ["home_shop_id"], :name => "index_game_results_on_home_shop_id"
   add_index "games", ["winning_type_id"], :name => "index_game_results_on_winning_type_id"
 
+  create_table "games_temp", :force => true do |t|
+    t.date     "scheduled_at"
+    t.integer  "home_shop_id"
+    t.integer  "away_shop_id"
+    t.integer  "winning_type_id"
+    t.integer  "home_score"
+    t.integer  "away_score"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "players", :force => true do |t|
     t.string   "name"
     t.integer  "shop_id"
@@ -36,13 +57,6 @@ ActiveRecord::Schema.define(:version => 20130408045333) do
   end
 
   add_index "players", ["shop_id"], :name => "index_players_on_shop_id"
-
-  create_table "samples", :force => true do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "shops", :force => true do |t|
     t.string   "name"
