@@ -1,8 +1,8 @@
-= form_for(@game_result) do |f|
-  - if @game_result.errors.any?
+= form_for(@game) do |f|
+  - if @game.errors.any?
     .alert.alert-error    
       %ul
-        - @game_result.errors.full_messages.each do |msg|
+        - @game.errors.full_messages.each do |msg|
           %li= msg
   .row
     .span2.offset1
@@ -13,7 +13,7 @@
     .span2.offset1
       = f.label :winning_type
     .span9
-      = f.collection_select(:winning_type, @winning_types, :id, :label, :selected => @game_result.winning_type.nil? ? nil : @game_result.winning_type.id, :include_blank => true)
+      = f.collection_select(:winning_type, @winning_types, :id, :label, :selected => @game.winning_type.nil? ? nil : @game.winning_type.id, :include_blank => true)
   .row.hidden-phone
     .span4.offset3
       = t '_form.home'
@@ -25,11 +25,11 @@
     .span1.visible-phone
       = t '_form.home'
     .span4
-      = f.collection_select(:home_shop, @shops, :id, :name, :selected => @game_result.home_shop.nil? ? nil : @game_result.home_shop.id, :include_blank => true)
+      = f.collection_select(:home_shop, @shops, :id, :name, :selected => @game.home_shop.nil? ? nil : @game.home_shop.id, :include_blank => true)
     .span1.visible-phone
       = t '_form.away'
     .span4
-      = f.collection_select(:away_shop, @shops, :id, :name, :selected => @game_result.away_shop.nil? ? nil : @game_result.away_shop.id, :include_blank => true)
+      = f.collection_select(:away_shop, @shops, :id, :name, :selected => @game.away_shop.nil? ? nil : @game.away_shop.id, :include_blank => true)
   .row
     .span2.offset1
       = t '_form.score'
@@ -46,5 +46,5 @@
     .span1.offset1
       = f.submit nil, :class => 'btn'
 .span1
-  = button_to t('back'), game_results_path, :method => :get, :class => 'btn'
+  = button_to t('back'), games_path, :method => :get, :class => 'btn'
 

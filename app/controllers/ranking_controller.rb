@@ -7,7 +7,7 @@ class RankingController < ApplicationController
 
 private
   def get_point shop, home_away
-      GameResult.find(:all, :conditions => ["#{home_away}_shop_id = ?", shop.id]).map { |g| 
+      Game.find(:all, :conditions => ["#{home_away}_shop_id = ?", shop.id]).map { |g| 
         if home_away == :home then
           g.home_score + (g.away_score < g.home_score ? (g.winning_type.try(:point) || 0 ) : 0)
         else 

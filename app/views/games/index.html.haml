@@ -1,0 +1,41 @@
+%h1
+  = t 'index.title'
+%hr
+= button_to t('index.new'), new_game_path, :method => :get, :class => 'btn'
+%br
+%table.table.table-striped
+  %tr
+    %th
+      = t 'index.date'
+    %th{:colspan => 2}
+      .text-center
+        = t 'index.home_shop'
+    %th{:colspan => 2}
+      .text-center
+        = t 'index.away_shop'
+    %th
+    %th
+  - @games_by_date.each_pair do |k, v|
+    - v.each_with_index do |game, i|
+      %tr
+        - if i == 0
+          %td{:rowspan => v.size}= k
+        %td
+          .text-right
+            = game.home_shop.name
+        %td
+          .text-center
+            = game.home_score
+        %td
+          .text-center
+            = game.away_score
+        %td
+          .text-left
+            = game.away_shop.name
+        %td
+          = link_to t('index.edit'), edit_game_path(game), :class => 'icon-edit hidden-phone'
+          -# 画面が小さいときは、ひとつの列にボタン二つ入れる
+          = link_to '', edit_game_path(game), :class => 'icon-edit visible-phone'
+          = link_to '', game, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove visible-phone'
+        %td
+          = link_to t('index.delete'), game, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove hidden-phone'

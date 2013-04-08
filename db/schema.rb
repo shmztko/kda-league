@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325164335) do
+ActiveRecord::Schema.define(:version => 20130408045333) do
 
-  create_table "game_results", :force => true do |t|
+  create_table "games", :force => true do |t|
     t.date     "scheduled_at"
     t.integer  "home_shop_id"
     t.integer  "away_shop_id"
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(:version => 20130325164335) do
     t.datetime "updated_at",                     :null => false
   end
 
-  add_index "game_results", ["away_shop_id"], :name => "index_game_results_on_away_shop_id"
-  add_index "game_results", ["home_shop_id"], :name => "index_game_results_on_home_shop_id"
-  add_index "game_results", ["winning_type_id"], :name => "index_game_results_on_winning_type_id"
+  add_index "games", ["away_shop_id"], :name => "index_game_results_on_away_shop_id"
+  add_index "games", ["home_shop_id"], :name => "index_game_results_on_home_shop_id"
+  add_index "games", ["winning_type_id"], :name => "index_game_results_on_winning_type_id"
 
   create_table "players", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20130325164335) do
   end
 
   add_index "players", ["shop_id"], :name => "index_players_on_shop_id"
+
+  create_table "samples", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "shops", :force => true do |t|
     t.string   "name"

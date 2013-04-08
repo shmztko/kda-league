@@ -1,4 +1,4 @@
-class GameResult < ActiveRecord::Base
+class Game < ActiveRecord::Base
   TOTAL_LEGS = 9
 
   attr_accessible :away_score, :home_score, :scheduled_at
