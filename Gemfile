@@ -34,9 +34,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# 'rspec-rails' must written in root context じゃないとrails g で spec が生成されない
+gem 'rspec-rails'
+
 group :test do
-  gem 'rspec'
-  gem 'rspec-rails'
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
   gem 'ci_reporter'
