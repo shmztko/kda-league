@@ -68,7 +68,7 @@ winning_types:
     - 0
 
 ---
-game_results:
+games:
   columns:
   - id
   - scheduled_at

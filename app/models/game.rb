@@ -7,8 +7,6 @@ class Game < ActiveRecord::Base
   belongs_to :away_shop, :foreign_key => :away_shop_id, :class_name => 'Shop'
   belongs_to :winning_type
 
-  has_many :game_result
-
   validates :scheduled_at, :presence => true
   validates :home_shop, :presence => true
   validates :away_shop, :presence => true
