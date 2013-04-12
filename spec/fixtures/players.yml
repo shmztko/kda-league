@@ -1,0 +1,34 @@
+player1_1:
+  name: Player1-1
+  shop_id: 1
+player1_2:
+  name: Player1-2
+  shop_id: 1
+
+player2_1:
+  name: Player2-1
+  shop_id: 2
+player2_2:
+  name: Player2-2
+  shop_id: 2
+
+player3_1:
+  name: Player3-1
+  shop_id: 3
+player3_2:
+  name: Player3-2
+  shop_id: 3
+
+player4_1:
+  name: Player4-1
+  shop_id: 4
+player4_2:
+  name: Player4-2
+  shop_id: 4
+
+player5_1:
+  name: Player5-1
+  shop_id: 5
+player5_2:
+  name: Player5-2
+  shop_id: 5

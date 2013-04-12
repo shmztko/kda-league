@@ -1,0 +1,39 @@
+#games:
+#  columns:
+#  - id
+#  - scheduled_at
+#  - home_shop_id
+#  - away_shop_id
+#  - winning_type_id
+#  - home_score
+#  - away_score
+#  - created_at
+#  - updated_at
+#  - is_abstained
+
+game1:
+  scheduled_at: '2013-02-18'
+  home_shop_id: 1
+  away_shop_id: 6
+  winning_type_id: 1
+  home_score: 5
+  away_score: 4
+  is_abstained: false
+
+game2:
+  scheduled_at: '2013-02-18'
+  home_shop_id: 2
+  away_shop_id: 5
+  winning_type_id: 3
+  home_score: 9
+  away_score: 0
+  is_abstained: true
+
+game3:
+  scheduled_at: '2013-03-11'
+  home_shop_id: 2
+  away_shop_id: 3
+  winning_type_id: 2
+  home_score: 2
+  away_score: 7
+  is_abstained: true
