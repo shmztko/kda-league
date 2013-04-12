@@ -8,6 +8,7 @@ class CreateGameDetails < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :game_details, :game_id, :shop_id
+    add_index :game_details, :game_id
+    add_index :game_details, :shop_id
   end
 end
