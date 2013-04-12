@@ -1,4 +1,13 @@
-
-
 game_detail1:
-  game: game1
+ id: 1
+ game_id: 1
+ shop_id: 1
+ legs: 1
+ throws: 29
+game_detail2:
+ id: 2
+ game_id: 1
+ shop_id: 6
+ legs: 1
+ throws: 0
+

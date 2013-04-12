@@ -1,0 +1,12 @@
+entry1:
+ game_detail_id: 1
+ player_id: 1
+entry2:
+ game_detail_id: 1
+ player_id: 2
+entry3:
+ game_detail_id: 1
+ player_id: 6
+entry4:
+ game_detail_id: 1
+ player_id: 6

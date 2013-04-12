@@ -1,18 +1,18 @@
-fellows:
+shop1:
  id: 1
- name: Fellows
-crossdesign_exe:
+ name: ショップ1
+shop2:
  id: 2
- name: crossdesignEXE
-loop:
+ name: ショップ2
+shop3:
  id: 3
- name: LOOP
-jbs_bar:
+ name: ショップ3
+shop4:
  id: 4
- name: JB's bar
-truth:
+ name: ショップ4
+shop5:
  id: 5
- name: TRUTH 水道橋
-heros_cafe:
+ name: ショップ5
+shop6:
  id: 6
- name: HERO's Cafe
+ name: ショップ6

@@ -1,34 +1,48 @@
 player1_1:
-  name: Player1-1
-  shop_id: 1
+ id: 1
+ name: Player1-1
+ shop_id: 1
 player1_2:
-  name: Player1-2
-  shop_id: 1
-
+ id: 2
+ name: Player1-2
+ shop_id: 1
 player2_1:
-  name: Player2-1
-  shop_id: 2
+ id: 3
+ name: Player2-1
+ shop_id: 2
 player2_2:
-  name: Player2-2
-  shop_id: 2
-
+ id: 4
+ name: Player2-2
+ shop_id: 2
 player3_1:
-  name: Player3-1
-  shop_id: 3
+ id: 5
+ name: Player3-1
+ shop_id: 3
 player3_2:
-  name: Player3-2
-  shop_id: 3
-
+ id: 6
+ name: Player3-2
+ shop_id: 3
 player4_1:
-  name: Player4-1
-  shop_id: 4
+ id: 7
+ name: Player4-1
+ shop_id: 4
 player4_2:
-  name: Player4-2
-  shop_id: 4
-
+ id: 8
+ name: Player4-2
+ shop_id: 4
 player5_1:
-  name: Player5-1
-  shop_id: 5
+ id: 9
+ name: Player5-1
+ shop_id: 5
 player5_2:
-  name: Player5-2
-  shop_id: 5
+ id: 10
+ name: Player5-2
+ shop_id: 5
+player6_1:
+ id: 11
+ name: Player6-1
+ shop_id: 6
+player6_2:
+ id: 12
+ name: Player6-2
+ shop_id: 6
