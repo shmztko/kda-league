@@ -1,5 +1,5 @@
 class GameDetail < ActiveRecord::Base
-  attr_accessible :legs, :throws
+  attr_accessible :legs, :throws, :shop
 
   belongs_to :game
   belongs_to :shop
