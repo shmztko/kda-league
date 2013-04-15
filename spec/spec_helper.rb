@@ -1,5 +1,16 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+# Coverage settings
+# Must written before other requirement
+require 'simplecov'
+require 'simplecov-rcov'
+SimpleCov.start 'rails' do
+  # excepts under 'vender' directory.
+  add_filter 'vendor'
+end
+# If you are using jenkins. you must convert to Rcov format.
+#SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'

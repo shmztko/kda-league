@@ -1,16 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '3.2.11'
 
+
+# Dababase dependecncie
 group :production do
   gem 'pg'
 end
 group :development, :test do
   gem 'sqlite3'
 end
+
 gem 'yaml_db'
 
 gem 'jquery-rails'
@@ -21,6 +23,17 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
 gem 'jquery-ui-rails'
+
+# 'rspec-rails' must written in root context to generated specs while executing rails command.
+gem 'rspec-rails'
+
+# Testing dependencies
+group :test do
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false
+  gem 'ci_reporter'
+  gem 'factory_girl_rails'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,14 +47,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-# 'rspec-rails' must written in root context じゃないとrails g で spec が生成されない
-gem 'rspec-rails'
-
-group :test do
-  gem 'simplecov', :require => false
-  gem 'simplecov-rcov', :require => false
-  gem 'ci_reporter'
-end
 
 #group :metrics do
 #  gem 'ZenTest', '= 4.8.3'
