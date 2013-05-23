@@ -7,10 +7,17 @@ gem 'rails', '3.2.11'
 
 # Dababase dependecncie
 group :production do
+  # We'll deploy at Heroku. Heroku only supports postgresql.
   gem 'pg'
 end
 group :development, :test do
-  gem 'sqlite3'
+  # SQLite3 syntax 'CREATE TEMPORARY TABLE ~~' dosent work on cygwin.
+  # In RoR this syntax used by change_column method in migration script.
+  if RUBY_PLATFORM =~ /cygwin/
+    gem 'mysql2'
+  else
+    gem 'sqlite3'
+  end
 end
 
 gem 'yaml_db'
@@ -42,8 +49,12 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
-
+  # Normal therubyracer dosent work on windows environment.
+  if RUBY_PLATFORM =~ /mingw|cygwin/
+    gem 'therubyracer', :git => 'https://github.com/takewo/therubyracer_windows.git'
+  else
+    gem 'therubyracer', :platforms => :ruby
+  end
   gem 'uglifier', '>= 1.0.3'
 end
 

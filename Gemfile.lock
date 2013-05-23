@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/takewo/therubyracer_windows.git
+  revision: ab166fe4efa6f1d054bdb5c2def7947bf3a912a0
+  specs:
+    therubyracer (0.11.0beta1)
+      ref
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,7 +47,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     commonjs (0.2.6)
-    diff-lcs (1.2.2)
+    diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -49,7 +56,7 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
-    haml (4.0.2)
+    haml (4.0.3)
       tilt
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
@@ -62,22 +69,22 @@ GEM
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.0.2)
+    jquery-ui-rails (4.0.3)
       jquery-rails
       railties (>= 3.1.0)
-    json (1.7.7)
-    less (2.3.1)
+    json (1.8.0)
+    less (2.3.2)
       commonjs (~> 0.2.6)
-    less-rails (2.3.2)
+    less-rails (2.3.3)
       actionpack (>= 3.1)
       less (~> 2.3.1)
-    libv8 (3.11.8.17)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.22)
-    multi_json (1.7.2)
+    mime-types (1.23)
+    multi_json (1.7.3)
+    mysql2 (0.3.11)
     pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -105,12 +112,12 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
-    ref (1.0.4)
+    ref (1.0.5)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.13.1)
-    rspec-rails (2.13.0)
+    rspec-rails (2.13.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -128,10 +135,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.7)
-    therubyracer (0.11.4)
-      libv8 (~> 3.11.8.12)
-      ref
     thor (0.18.1)
     tilt (1.3.6)
     treetop (1.4.12)
@@ -142,7 +145,7 @@ GEM
       execjs
       railties (>= 3.1)
     tzinfo (0.3.37)
-    uglifier (2.0.1)
+    uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     yaml_db (0.2.3)
@@ -158,13 +161,13 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   less-rails
+  mysql2
   pg
   rails (= 3.2.11)
   rspec-rails
   simplecov
   simplecov-rcov
-  sqlite3
-  therubyracer
+  therubyracer!
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   yaml_db
