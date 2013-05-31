@@ -13,6 +13,6 @@ private
         else 
           g.away_score + (g.away_score > g.home_score ? (g.winning_type.try(:point) || 0 ) : 0)  
         end
-      }.inject{|result, item| result += item}
+      }.inject(0){|result, item| result += item}
   end
 end
