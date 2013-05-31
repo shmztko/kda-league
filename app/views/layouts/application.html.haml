@@ -29,7 +29,8 @@
           .container.nav-collapse.hidden-desktop
             %ul.nav
               %li= link_to t('layouts.application.ranking'), "/ranking/show"
-              %li= link_to t('layouts.application.results'), "/game_results"
+              %li= link_to t('layouts.application.results'), "/games"
+              %li= link_to t('layouts.application.shops'), "/shops"
               %li= link_to t('layouts.application.blog'), "http://ameblo.jp/kdahard/", {:target => 'blank'}
 
     .container-fluid
@@ -39,6 +40,7 @@
             %ul.nav.nav-list
               %li= link_to t('layouts.application.ranking'), "/ranking/show"
               %li= link_to t('layouts.application.results'), "/games"
+              %li= link_to t('layouts.application.shops'), "/shops"
               %li= link_to t('layouts.application.blog'), "http://ameblo.jp/kdahard/", {:target => 'blank'}
         .span10
           = bootstrap_flash
