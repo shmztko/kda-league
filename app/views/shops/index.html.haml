@@ -8,6 +8,7 @@
 
   - @shops.each do |shop|
     %tr
+      %td= shop.name
       %td= link_to 'Show', shop
       %td= link_to 'Edit', edit_shop_path(shop)
       %td= link_to 'Destroy', shop, :method => :delete, :data => { :confirm => 'Are you sure?' }
