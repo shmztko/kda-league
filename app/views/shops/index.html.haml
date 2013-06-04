@@ -1,18 +1,20 @@
-%h1 Listing shops
-
-%table
+%h1= t 'index.title'
+%hr
+= button_to t('index.new'), new_shop_path, :method => :get, :class => 'btn'
+%br
+%table.table.table-striped
   %tr
-    %th
+    %th= t 'index.name'
     %th
     %th
 
   - @shops.each do |shop|
     %tr
       %td= shop.name
-      %td= link_to 'Show', shop
-      %td= link_to 'Edit', edit_shop_path(shop)
-      %td= link_to 'Destroy', shop, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Shop', new_shop_path
+      %td
+        = link_to t('index.edit'), edit_shop_path(shop), :class => 'icon-edit hidden-phone'
+        -# 画面が小さいときは、ひとつの列にボタン二つ入れる
+        = link_to '', edit_shop_path(shop), :class => 'icon-edit visible-phone'
+        = link_to '', shop, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove visible-phone'
+      %td
+        = link_to t('index.delete'), shop, method: :delete, data: { confirm: t('index.confirm.message') }, :class => 'icon-remove hidden-phone'
