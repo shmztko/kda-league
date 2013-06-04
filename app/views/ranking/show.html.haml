@@ -2,14 +2,15 @@
   = t 'show.title'
 %table.table.table-striped
   %tr
-  %th
-    = t 'show.rank'
-  %th
-    = t 'show.shop'
-  %th
-    = t 'show.point'
-  - @point_for_shop.each_with_index do |ps, i|
+  %th= t 'show.rank'
+  %th= t 'show.shop'
+  %th= t 'show.point'
+  %th= t 'show.wins'
+  %th= t 'show.loses'
+  - @result_for_shop.each_with_index do |rs, i|
     %tr
-      %td= i+1
-      %td= ps[:shop].name
-      %td= ps[:point]
+      %td= i + 1
+      %td= rs[:shop].name
+      %td= rs[:point]
+      %td= rs[:wins]
+      %td= rs[:loses]
