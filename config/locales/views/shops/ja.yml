@@ -1,0 +1,9 @@
+ja:
+  index:
+    title: 参加ショップ一覧
+    name: ショップ名
+    new: 追加
+    delete: 削除
+    edit: 編集
+    confirm:
+      message: よろしいですか？
