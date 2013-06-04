@@ -1,16 +1,14 @@
 KdaLeague::Application.routes.draw do
 
-  resources :shops
-
-
   root :to => 'ranking#show'
-
-  resources :players
 
   get "ranking/show"
 
-  resources :games, :except => 'show'
+  resources :shops
 
+  resources :players
+
+  resources :games, :except => 'show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
